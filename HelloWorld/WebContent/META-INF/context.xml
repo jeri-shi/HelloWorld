@@ -2,6 +2,7 @@
 <Context>
 
   <Resource name="jdbc/learnDB" auth="Container" type="javax.sql.DataSource"
+  			factory="org.apache.tomcat.jdbc.pool.DataSourceFactory"
                maxActive="5" maxIdle="3" maxWait="10000"
                username="root" password="root"
                driverClassName="com.mysql.jdbc.Driver"
