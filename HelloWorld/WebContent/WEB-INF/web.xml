@@ -5,6 +5,24 @@
     <welcome-file>index.jsp</welcome-file>
   </welcome-file-list>
   
+	<resource-ref>
+	  <description>
+	    Resource reference to a factory for java.sql.Connection
+	    instances that may be used for talking to a particular
+	    database that is configured in the Context
+	    configuration for the web application.
+	  </description>
+	  <res-ref-name>
+	    jdbc/learnDB
+	  </res-ref-name>
+	  <res-type>
+	    javax.sql.DataSource
+	  </res-type>
+	  <res-auth>
+	    Container
+	  </res-auth>
+	</resource-ref>
+
     <servlet>
         <servlet-name>HelloWorld</servlet-name>
         <servlet-class>

@@ -6,7 +6,7 @@ import org.springframework.stereotype.Controller;
 
 @Controller
 public class HelloWorldController {
-
+  
   @RequestMapping("/welcome")
   public ModelAndView helloWorld() {
     String message = "World";
