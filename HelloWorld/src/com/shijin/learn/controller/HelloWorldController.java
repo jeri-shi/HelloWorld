@@ -19,8 +19,10 @@ public class HelloWorldController {
   public ModelAndView helloWorld() {
 
     String message = "World";
-    Animal animal = animalsDao.getAnimal(3);
-    message += animal.getName();
+    Animal animal = animalsDao.getAnimal(1);
+    if (animal != null) {
+      message = animal.getName();
+    }
 
     return new ModelAndView("welcome", "message", message);
   }
