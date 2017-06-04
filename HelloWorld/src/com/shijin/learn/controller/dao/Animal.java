@@ -2,7 +2,7 @@ package com.shijin.learn.controller.dao;
 
 public class Animal {
   private int id;
-  private String name;
+  private String name; //name
   
   public Animal() {
   }

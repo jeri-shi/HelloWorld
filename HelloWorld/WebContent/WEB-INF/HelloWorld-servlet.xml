@@ -1,7 +1,9 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc" 
+	xmlns:context="http://www.springframework.org/schema/context"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns:jee="http://www.springframework.org/schema/jee"
+	xmlns:mybatis="http://mybatis.org/schema/mybatis-spring"
 	xsi:schemaLocation="
         http://www.springframework.org/schema/beans     
         http://www.springframework.org/schema/beans/spring-beans.xsd
@@ -11,6 +13,8 @@
         http://www.springframework.org/schema/context/spring-context.xsd
         http://www.springframework.org/schema/jee
         http://www.springframework.org/schema/jee/spring-jee.xsd
+        http://mybatis.org/schema/mybatis-spring 
+        http://mybatis.org/schema/mybatis-spring.xsd
         ">
  
 	<context:component-scan base-package="com.shijin.learn.controller" />
@@ -25,5 +29,10 @@
 		<property name="prefix" value="/WEB-INF/jsp/" />
 		<property name="suffix" value=".jsp" />
 	</bean>
- 
+ 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+ 		<property name="dataSource" ref="dataSource"/>
+ 		<property name="typeAliasesPackage" value="com.shijin.learn.controller.dao" />
+ 	</bean>
+ 	
+ 	<mybatis:scan base-package="com.shijin.learn.mapper" />
 </beans>

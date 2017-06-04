@@ -31,6 +31,6 @@ public class HelloWorldController {
   public void addAnimal() {
     Animal pig = new Animal();
     pig.setName("Big Pig");
-    animalsDao.AddAnimal(pig);
+    animalsDao.addAnimal(pig);
   }
 }
