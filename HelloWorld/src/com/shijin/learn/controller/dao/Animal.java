@@ -23,7 +23,10 @@ public class Animal {
     this.name = name;
   }
 
-  
+  @Override
+  public String toString() {
+    return new StringBuilder().append(name).append("[").append(id).append("]").toString();
+  }
 
 
 }

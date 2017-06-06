@@ -3,6 +3,7 @@ package com.shijin.learn.controller.dao;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.List;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -29,15 +30,31 @@ public class AnimalsDAO {
     this.jdbcTemplate = jdbcTemplate;
   }
 
+  public List<Animal> getAllAnimals() {
+    return animalsMapper.selectAllAnimals();
+  }
+  
+  public void updateAnimal(Animal animal) {
+    int ret = animalsMapper.updateAnimal(animal);
+    LOGGER.info("update animal " + animal + ", return = " + ret);
+  }
+  
   public void addAnimal(Animal animal) {
     LOGGER.debug("add a animal");
 //    jdbcTemplate.update(SQL_INSERT_ANIMAL, animal.getName());
     int ret = animalsMapper.insertAnimal(animal);
-    LOGGER.info("add animal return = " + ret);
+    LOGGER.info("add animal " + animal + ", return = " + ret);
   }
 
+  public void deleteAnimal(int id) {
+    animalsMapper.deleteAnimal(id);
+  }
   public Animal getAnimal(int id) {
+    return animalsMapper.selectAnimal(id);
+  }
+  public Animal getAnimal_jdbc(int id) {
     LOGGER.debug("find animal with id = " + id);
+    
     return jdbcTemplate.queryForObject(SQL_SELECT_ANIMAL, new RowMapper<Animal>() {
       @Override
       public Animal mapRow(ResultSet rs, int rowNum) throws SQLException {

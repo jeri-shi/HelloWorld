@@ -4,9 +4,25 @@
 
 <mapper namespace="com.shijin.learn.mapper.AnimalsMapper">
 
-<insert id="insertAnimal" parameterType="Animal">
+<insert id="insertAnimal" parameterType="Animal" useGeneratedKeys="true" keyProperty="id">
 	insert into animals (name)
 	values (#{name})
 </insert>
 
+<update id="updateAnimal" parameterType="Animal">
+	update animals set name = #{name}
+	where id = #{id}
+</update>
+
+<select id="selectAllAnimals" resultType="Animal">
+	select id, name from animals
+</select>
+
+<select id="selectAnimal" parameterType="int" resultType="Animal">
+	select id, name from animals where id = #{id}
+</select>
+
+<delete id="deleteAnimal" parameterType="int">
+	delete from animals where id = #{id}
+</delete>
 </mapper>

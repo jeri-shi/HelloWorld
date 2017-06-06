@@ -4,8 +4,7 @@
          xmlns:web="http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
          version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee">
 
-  <display-name>HelloWorld
-  </display-name>
+  <display-name>HelloWorld</display-name>
   <welcome-file-list>
     <welcome-file>index.jsp</welcome-file>
   </welcome-file-list>
@@ -39,7 +38,7 @@
         <servlet-name>HelloWorld</servlet-name>
         <url-pattern>/welcome.jsp</url-pattern>
         <url-pattern>/welcome.html</url-pattern>
-        <url-pattern>*.html</url-pattern>
+        <url-pattern>/</url-pattern>
     </servlet-mapping>
   
 </web-app>
