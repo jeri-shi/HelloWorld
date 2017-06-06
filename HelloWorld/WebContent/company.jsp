@@ -174,6 +174,39 @@ h4 {
     font-weight: 400;
     margin-bottom: 30px;
 }
+.slideanim {visibility:hidden;}
+.slide {
+    /* The name of the animation */
+    animation-name: slide;
+    -webkit-animation-name: slide;
+    /* The duration of the animation */
+    animation-duration: 1s;
+    -webkit-animation-duration: 1s;
+    /* Make the element visible */
+    visibility: visible;
+}
+
+/* Go from 0% to 100% opacity (see-through) and specify the percentage from when to slide in the element along the Y-axis */
+@keyframes slide {
+    0% {
+        opacity: 0;
+        transform: translateY(70%);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0%);
+    }
+}
+@-webkit-keyframes slide {
+    0% {
+        opacity: 0;
+        -webkit-transform: translateY(70%);
+    }
+    100% {
+        opacity: 1;
+        -webkit-transform: translateY(0%);
+    }
+}
   </style>
   </head>
   <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
@@ -206,9 +239,10 @@ h4 {
     <div class="row">
       <div class="col-sm-8">
         <h2>About Company Page</h2>
-        <h4>Something here...</h4>
+        <h4>Till Today we have 4 amazing Products and we keep on building new ones in order to ease the tedious tasks of the endusers.
+          Everything else was designed to make Admin and Enduser Management as easy as possible.</h4>
         <p>
-          more details here...
+          What began as a small New England business in 1923 has grown into a $13.8 billion company, with a worldwide presence supported by 35,000 people in more than 25 countries. Throughout its history, Company has been the source of ground-breaking technologies and numerous industry-firsts. Many major steps in the evolution of aircraft, rotorcraft, armored vehicles, electrical vehicles, tools and automotive systems have emerged from our product development labs.
         </p>
         <button class="btn btn-default btn-lg">Get in Touch</button>
       </div>
@@ -225,9 +259,9 @@ h4 {
       </div>
       <div class="col-sm-8">
         <h2>Our Values</h2>
-        <h4><strong>MISSION:</strong>Our mission is learn something quickly...</h4>
+        <h4><strong>MISSION:</strong>To organise the world's information and make it universally accessible and useful</h4>
         <p>
-          <strong>VISION:</strong>Our vision is do thing we like...
+          <strong>VISION:</strong>So together, we save money for a better everyday life
         </p>
       </div>
     </div>
@@ -540,6 +574,17 @@ marker.setMap(map);
       } // End if
     });
   })
+
+  $(window).scroll(function() {
+  $(".slideanim").each(function(){
+    var pos = $(this).offset().top;
+
+    var winTop = $(window).scrollTop();
+    if (pos < winTop + 600) {
+      $(this).addClass("slide");
+    }
+  });
+});
   </script>
 
 
