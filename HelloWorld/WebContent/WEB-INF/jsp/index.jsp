@@ -23,25 +23,36 @@
         line-height: 1.8;
         color: #818181;
       }
-
+      .bg-1 {
+        background-color: rgb(96,134,181);
+        padding-top: 70px;
+        padding-bottom: 20px;
+      }
+      .bg-2 {
+        background-color: rgb(63,103,154);
+        padding-bottom: 70px;
+      }
+      .panel-body{
+        padding: 20px 20px 50px 20px;
+      }
     </style>
     <title>Welcome</title>
   </head>
-  <body>
-    <div class="container">
+  <body class="bg-2">
+    <div class="container-fluid bg-1 text-center">
+      <img class="img-responsive img-rounded" style="display: inline;" src="<c:url value="/resources/images/images.jpg"/>" />
+    </div>
+    <div class="container-fluid bg-2" style="padding-top: 20px;">
       <div class="row">
-        <div class="col-sm-2">
-          <img class="img-responsive img-rounded" src="<c:url value="/resources/images/images.jpg"/>" />
-        </div>
         <div class="col-sm-offset-4 col-sm-4">
           <div class="panel panel-default">
             <div class="panel-heading">
               <h3>Add an Animal</h3>
             </div>
-            <div class="panel-body btn-group">
-              <a href="./welcome" class="btn btn-success">Welcome</a>
-              <a href="./newAnimal" class="btn btn-info">Add Animal</a>
-              <a href="./listAnimals" class="btn btn-info">List Animals</a>
+            <div class="panel-body"  role="group">
+              <a href="<c:url value="/welcome"/>" class="btn btn-success btn-block" role="group">Welcome</a>
+              <a href="<c:url value="/newAnimal"/>" class="btn btn-info btn-block" role="group">Add Animal</a>
+              <a href="<c:url value="/listAnimals"/>" class="btn btn-info btn-block" role="group">List Animals</a>
             </div>
             <div class="panel-footer">
               <p class="text-right">

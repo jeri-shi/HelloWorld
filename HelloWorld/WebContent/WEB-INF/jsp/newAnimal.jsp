@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -40,7 +41,8 @@
 									<h3>Add an Animal</h3>
 								</div>
 								<div class="panel-body">
-									<form:form commandName="animal" action="./add" method="POST">
+									<c:url value="/add" var="theAction"/>
+									<form:form commandName="animal" action="${theAction}" method="POST">
 										<div class="form-group">
 											<label>
 												Name:

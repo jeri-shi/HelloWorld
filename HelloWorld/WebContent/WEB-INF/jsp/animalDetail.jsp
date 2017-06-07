@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
   <head>
@@ -33,15 +34,21 @@
         </div>
         <div class="panel-body">
           <div class="row">
-            <div class="col-xs-2 col-sm-6">
+            <div class="col-xs-4 col-sm-6">
               <label>Id: ${animal.id}</label>
             </div>
-            <div class="col-xs-10 col-sm-6">
+            <div class="col-xs-8 col-sm-6">
               <label>Name: ${animal.name}</label>
             </div>
           </div>
         </div>
+        <div class="panel-footer">
+          <div class="row">
+            <div class="col-sm-offset-10 col-sm-2">
+              <a href="<c:url value='${request.contextPath}/listAnimals'/>" class="btn btn-warning">Back</a>
+            </div>
+          </div>
+        </div>
       </div>
-
     </div>
   </body>

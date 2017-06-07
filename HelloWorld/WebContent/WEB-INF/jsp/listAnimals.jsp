@@ -38,7 +38,15 @@
 				<div class="col-sm-offset-2 col-sm-8">
 					<div class="panel panel-success">
 						<div class="panel-heading">
-							<h3>Animal List</h3>
+							<div class="row">
+								<div class="col-sm-10">
+									<h3>Animal List</h3>
+								</div>
+								<div class="col-sm-2">
+									<a href="<c:url value="/newAnimal"/>" class="btn btn-info pull-right btn-block">Add Animal</a>
+									<a href="<c:url value='${request.contextPath}/'/>" class="btn btn-info pull-right btn-block">Back Home</a>
+								</div>
+							</div>
 						</div>
 						<div class="table-responsive">
 							<table class="table table-hover table-striped text-center">
@@ -56,13 +64,17 @@
 									<tr>
 										<td>${animal.id}</td>
 										<td>
-											<a href="animalDetail/${animal.id}" class="">${animal.name}</a>
+											<a href="<c:url value='animalDetail/${animal.id}'/>" class="">${animal.name}</a>
 										</td>
 										<td>
-											<a href="updateAnimal/${animal.id}"><span class="glyphicon glyphicon-edit" style="color:green"></span></a>
+											<a href="<c:url value="updateAnimal/${animal.id}"/>">
+												<span class="glyphicon glyphicon-edit" style="color:green"></span>
+											</a>
 										</td>
 										<td>
-											<a href="deleteAnimal/${animal.id}"><span class="glyphicon glyphicon-remove" style="color:red"></span></a>
+											<a href="deleteAnimal/${animal.id}">
+												<span class="glyphicon glyphicon-remove" style="color:red"></span>
+											</a>
 										</td>
 									</tr>
 								</c:forEach>
