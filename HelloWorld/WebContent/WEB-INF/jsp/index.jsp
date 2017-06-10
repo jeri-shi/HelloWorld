@@ -30,10 +30,10 @@
       }
       .bg-2 {
         background-color: rgb(63,103,154);
-        padding-bottom: 70px;
+        padding-bottom: 20px;
       }
       .panel-body{
-        padding: 20px 20px 50px 20px;
+        padding: 20px 20px 20px 20px;
       }
     </style>
     <title>Welcome</title>
@@ -53,6 +53,7 @@
               <a href="<c:url value="/welcome"/>" class="btn btn-success btn-block" role="group">Welcome</a>
               <a href="<c:url value="/newAnimal"/>" class="btn btn-info btn-block" role="group">Add Animal</a>
               <a href="<c:url value="/listAnimals"/>" class="btn btn-info btn-block" role="group">List Animals</a>
+              <a href="<c:url value="/session"/>" class="btn btn-warning btn-block" role="group">Session Form</a>
             </div>
             <div class="panel-footer">
               <p class="text-right">
