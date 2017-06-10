@@ -44,7 +44,7 @@
 								</div>
 								<div class="panel-body">
 									<c:url value="/session" var="theAction"/>
-									<form action="${theAction}" method="POST" cssClass="form-horizontal">
+									<form:form action="${theAction}" method="POST" cssClass="form-horizontal">
 										<div class="form-group pad">
 											<label class="col-xs-offset-1 col-xs-5 col-sm-3 control-label">Name:</label>
 											<div class="col-xs-6 col-sm-7">
@@ -66,7 +66,7 @@
 												<input type="submit" class="btn btn-success" value="Add Attribute"/>
 											</div>
 										</div>
-									</form>
+									</form:form>
 								</div>
 								<table class="table">
 								<c:forEach items="${sessionScope}" var="attr">
