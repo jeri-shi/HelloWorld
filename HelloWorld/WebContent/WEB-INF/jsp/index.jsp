@@ -25,7 +25,7 @@
       }
       .bg-1 {
         background-color: rgb(96,134,181);
-        padding-top: 70px;
+        padding-top: 40px;
         padding-bottom: 20px;
       }
       .bg-2 {
@@ -54,8 +54,15 @@
               <a href="<c:url value="/newAnimal"/>" class="btn btn-info btn-block" role="group">Add Animal</a>
               <a href="<c:url value="/listAnimals"/>" class="btn btn-info btn-block" role="group">List Animals</a>
               <a href="<c:url value="/session"/>" class="btn btn-warning btn-block" role="group">Session Form</a>
+              <br/>
+		    <c:url var="logoutUrl" value="/logout"/>
+		    <form:form action="${logoutUrl}" method="post">
+		      <input type="submit" class="btn btn-danger btn-block" role="group" value="Log out" />
+		    </form:form>
+              
             </div>
             <div class="panel-footer">
+              <p class="text-right">current user: <strong><c:out value="${pageContext.request.remoteUser}"/></strong></p>
               <p class="text-right">
                 powered by learn.shijin.com
               </p>
