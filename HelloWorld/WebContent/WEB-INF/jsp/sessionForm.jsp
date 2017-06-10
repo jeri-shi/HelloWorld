@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -22,7 +23,9 @@
 				line-height: 1.8;
 				color: #818181;
 			}
-
+			.pad {
+				padding 10px 10px 10px 10px;
+			}
 		</style>
 		<title>Detail</title>
 	</head>
@@ -30,39 +33,49 @@
 		<div class="container-fluid">
 			<div class="panel panel-success">
 				<div class="panel-heading">
-					<h3>Update Animal Details</h3>
+					<h3>Session Form</h3>
 				</div>
 				<div class="panel-body">
 					<div class="row">
-						<div class="col-sm-offset-4 col-sm-4">
+						<div class="col-sm-offset-3 col-sm-5">
 							<div class="panel panel-default">
 								<div class="panel-heading">
-									<h3>Edit an Animal</h3>
+									<h3>Session Attribute List</h3>
 								</div>
 								<div class="panel-body">
-									<form:form commandName="animal" action="../update" method="POST" cssClass="form-horizontal">
-										<form:input type="hidden" path="id" value="${id}"/>
-										<div class="form-group">
-											<label class="col-sm-2 control-label">Id:</label>
-											<div class="col-sm-10">
-												<p class="form-control-static">${animal.id}</p>
+									<c:url value="/session" var="theAction"/>
+									<form action="${theAction}" method="POST" cssClass="form-horizontal">
+										<div class="form-group pad">
+											<label class="col-xs-offset-1 col-xs-5 col-sm-3 control-label">Name:</label>
+											<div class="col-xs-6 col-sm-7">
+												<input type="text" name="attributeName" class="form-control"/>
 											</div>
 										</div>
-										<div class="form-group">
-											<label class="col-sm-2 control-label">
-												Name:
+										
+										<div class="form-group pad">
+											<label class="col-xs-offset-1 col-xs-5 col-sm-3 control-label">
+												Value:
 											</label>
-											<div class="col-sm-10">
-												<form:input type="text" path="name" cssClass="form-control" placeholder="Animal Name"/>
+											<div class="col-xs-5 col-sm-7">
+												<input type="text" name="attributeValue" class="form-control" />
 											</div>
 										</div>
-										<div class="form-group">
-											<div class="col-sm-offset-2 col-sm-10">
-												<input type="submit" class="btn btn-success" value="Update"/>
+
+										<div class="form-group pad">
+											<div class="col-xs-offset-6 col-xs-6 col-sm-offset-4 col-sm-8">
+												<input type="submit" class="btn btn-success" value="Add Attribute"/>
 											</div>
 										</div>
-									</form:form>
+									</form>
 								</div>
+								<table class="table">
+								<c:forEach items="${sessionScope}" var="attr">
+									<tr>
+										<td><c:out value="${attr.key}" /></td>
+										<td><c:out value="${attr.value}" /></td>
+									</tr>
+								</c:forEach>
+								</table>
 								<div class="panel-footer">
 									<p class="text-right">powered by learn.shijin.com</p>
 								</div>

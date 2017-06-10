@@ -5,6 +5,8 @@ package com.shijin.learn.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -87,4 +89,18 @@ public class HelloWorldController {
     return "redirect:/listAnimals";
   }
 
+  @RequestMapping(value="/session", method=RequestMethod.GET)
+  public String displaySessionForm() {
+    return "sessionForm";
+  }
+  
+  @RequestMapping(value="/session", method=RequestMethod.POST)
+  public String handleSession(HttpServletRequest req) {
+    String attributeName = req.getParameter("attributeName");
+    String attributeValue = req.getParameter("attributeValue");
+    LOGGER.info("Name=" + attributeName + ", Value=" + attributeValue);
+    req.getSession().setAttribute(attributeName, attributeValue);
+    
+    return "sessionForm";
+  }
 }
